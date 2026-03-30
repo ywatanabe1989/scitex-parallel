@@ -1,0 +1,25 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "scitex-parallel"
+version = "0.1.0"
+description = "Thread/process pool parallel execution utilities"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.9"
+authors = [
+    { name = "Yusuke Watanabe" },
+]
+
+dependencies = [
+    "tqdm",
+]
+
+[project.urls]
+Homepage = "https://github.com/ywatanabe1989/scitex-parallel"
+Repository = "https://github.com/ywatanabe1989/scitex-parallel"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/scitex_parallel"]
