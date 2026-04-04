@@ -43,6 +43,9 @@ Issues = "https://github.com/ywatanabe1989/scitex-parallel/issues"
 [project.entry-points."scitex_dev.docs"]
 scitex-parallel = "scitex_parallel"
 
+[project.entry-points."scitex_dev.skills"]
+scitex-parallel = "scitex_parallel"
+
 [tool.hatch.build.targets.wheel]
 packages = ["src/scitex_parallel"]
 
