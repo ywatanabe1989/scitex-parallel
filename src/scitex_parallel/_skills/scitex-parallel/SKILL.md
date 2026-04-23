@@ -2,9 +2,12 @@
 name: scitex-parallel
 description: Minimal thread-pool parallel execution for scientific Python — a single one-shot helper that maps a callable across argument tuples with auto CPU detection and a tqdm progress bar. Public API (1 symbol) — `run(func, args_list, n_jobs=-1, desc="Processing") -> List[Any]` (uses `ThreadPoolExecutor`, `n_jobs=-1` → `os.cpu_count()`, preserves input order in the result list, shows a `tqdm` bar labeled by `desc`). Thread-based, so best for I/O-bound workloads (HTTP fetches, file reads, API calls); CPU-bound loops remain GIL-limited — use `multiprocessing` / `joblib` / Dask / Ray for those. No CLI, no MCP tools, no extra modules. Drop-in replacement for `concurrent.futures.ThreadPoolExecutor(...).map(...)` with a manual `tqdm` wrapper, `joblib.Parallel(n_jobs=...)(delayed(f)(*a) for a in args)` (heavier dep, process-based default), and hand-rolled `threading.Thread` loops with `Queue`. Use whenever the user asks to "parallelize this loop with a progress bar", "download N URLs/PDFs in parallel", "fan out API calls across threads", "run a function over a list of arg tuples in parallel", or mentions `scitex.parallel.run`, thread pool with tqdm.
 user-invocable: false
+primary_interface: python
 ---
 
 # scitex-parallel
+
+> **Primary interface: Python API.** Import in scripts/notebooks — CLI & MCP are thin wrappers over the Python functions.
 
 One-function package: `run()` maps a callable over a list of argument
 tuples using `ThreadPoolExecutor`. Use when you want a drop-in parallel
