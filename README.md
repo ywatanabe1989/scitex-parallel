@@ -68,7 +68,7 @@ results = run(my_func, [(a, b) for a, b in zip(xs, ys)], n_jobs=4)
 
 `scitex-parallel` is part of [**SciTeX**](https://scitex.ai). Install via
 the umbrella with `pip install scitex[parallel]` to use as
-`scitex.parallel` (Python).
+`scitex.parallel` (Python) or `scitex parallel ...` (CLI).
 
 >Four Freedoms for Research
 >
