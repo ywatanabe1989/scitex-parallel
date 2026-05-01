@@ -38,6 +38,14 @@ dev = [
     "ruff",
 ]
 
+docs = [
+    "sphinx>=7.0",
+    "sphinx-rtd-theme>=2.0",
+    "myst-parser>=2.0",
+    "sphinx-copybutton>=0.5",
+    "sphinx-autodoc-typehints>=1.25",
+]
+
 [project.urls]
 Homepage = "https://github.com/ywatanabe1989/scitex-parallel"
 Repository = "https://github.com/ywatanabe1989/scitex-parallel"
