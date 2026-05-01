@@ -47,7 +47,7 @@ results = run(my_func, items, n_jobs=4)
 
 ## 1 Interfaces
 
-<details>
+<details open>
 <summary><strong>Python API</strong></summary>
 
 <br>
