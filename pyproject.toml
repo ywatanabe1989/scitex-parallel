@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "scitex-parallel"
-version = "0.1.4"
+version = "0.1.6"
 description = "Thread/process pool parallel execution utilities"
 readme = "README.md"
 license = "AGPL-3.0-only"
@@ -42,6 +42,7 @@ dev = [
 Homepage = "https://github.com/ywatanabe1989/scitex-parallel"
 Repository = "https://github.com/ywatanabe1989/scitex-parallel"
 Issues = "https://github.com/ywatanabe1989/scitex-parallel/issues"
+Documentation = "https://scitex-parallel.readthedocs.io"
 
 [project.entry-points."scitex_dev.docs"]
 scitex-parallel = "scitex_parallel"
