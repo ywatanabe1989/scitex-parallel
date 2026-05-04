@@ -49,6 +49,9 @@ workloads will be GIL-limited.
 
 ## Sub-skills
 
-- [01_quick-start.md](01_quick-start.md) — install, import, one full example
+- [01_installation.md](01_installation.md) — pip install + smoke verify
+- [02_quick-start.md](02_quick-start.md) — `run()` examples
+- [03_python-api.md](03_python-api.md) — `run()` reference + behavior
+- [10_quick-start.md](10_quick-start.md) — original quick-start (legacy)
 
 No CLI, no MCP tools, no extra modules.
