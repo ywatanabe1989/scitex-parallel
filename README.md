@@ -66,6 +66,39 @@ results = run(my_func, [(a, b) for a, b in zip(xs, ys)], n_jobs=4)
 
 </details>
 
+## Architecture
+
+```
+scitex_parallel/
+├── _run.py               ← `run(func, args, n_jobs=…)` thread-pool map
+├── _progress.py          ← tqdm wiring (auto desc, position-safe)
+├── _cpu.py               ← auto CPU-count detection
+└── __init__.py           ← public surface
+```
+
+## Demo
+
+```mermaid
+flowchart LR
+    A[items list] --> B[run func, items, n_jobs=8]
+    B --> T1[thread 1]
+    B --> T2[thread 2]
+    B --> Tn[thread N]
+    T1 & T2 & Tn --> C[tqdm progress bar]
+    C --> D[results list]
+```
+
+```python
+from scitex_parallel import run
+
+urls = ["https://api.example.com/{}".format(i) for i in range(100)]
+results = run(fetch_url, urls, n_jobs=8, desc="Fetching")
+```
+
+```
+Fetching: 100%|████████████| 100/100 [00:04<00:00, 22.3 it/s]
+```
+
 ## Part of SciTeX
 
 `scitex-parallel` is part of [**SciTeX**](https://scitex.ai). Install via
