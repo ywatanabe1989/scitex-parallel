@@ -36,6 +36,7 @@ dev = [
     "pytest>=7.0",
     "pytest-cov",
     "ruff",
+    "scitex-dev>=0.11.5",
 ]
 
 docs = [
