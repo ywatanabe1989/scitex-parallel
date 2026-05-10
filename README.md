@@ -9,7 +9,7 @@
 <p align="center"><b>Thread/process pool parallel execution utilities — `map` with tqdm, auto CPU count.</b></p>
 
 <p align="center">
-  <a href="https://scitex-parallel.readthedocs.io/">Full Documentation</a> · <code>pip install scitex-parallel</code>
+  <a href="https://scitex-parallel.readthedocs.io/">Full Documentation</a> · <code>uv pip install scitex-parallel[all]</code>
 </p>
 
 <!-- scitex-badges:start -->
