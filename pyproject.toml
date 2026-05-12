@@ -62,6 +62,11 @@ scitex-parallel = "scitex_parallel"
 [tool.hatch.build.targets.wheel]
 packages = ["src/scitex_parallel"]
 
+[tool.coverage.run]
+parallel = true
+source = ["scitex_parallel"]
+concurrency = ["multiprocessing", "thread"]
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["src"]
