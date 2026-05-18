@@ -9,12 +9,29 @@ import shutil
 import pytest
 
 
-def test_audit_all_clean():
+@pytest.fixture
+def scitex_dev_available() -> bool:
+    """Skip the test if the `scitex-dev` console script isn't on PATH."""
     if shutil.which("scitex-dev") is None:
         pytest.skip(
             "scitex-dev not installed — add `scitex-dev[cli-audit]` "
             "to [project.optional-dependencies.dev]"
         )
+    return True
+
+
+def test_audit_all_returns_without_raising_for_scitex_parallel(scitex_dev_available):
+    # Arrange
     from scitex_dev.testing import audit_all_for_package
 
-    audit_all_for_package('scitex-parallel')
+    package_name = "scitex-parallel"
+    raised: Exception | None = None
+
+    # Act
+    try:
+        audit_all_for_package(package_name)
+    except Exception as exc:  # pragma: no cover — only on regression
+        raised = exc
+
+    # Assert
+    assert raised is None, f"audit_all_for_package raised: {raised!r}"
