@@ -1,0 +1,9 @@
+# Per-repo scitex-dev audit configuration.
+#
+# Tracked via the `.gitignore` exception so CI applies the same
+# whitelist as local. See:
+#   ~/proj/scitex-dev/src/scitex_dev/_skills/general/01_ecosystem_06_local-state-directories.md §4c
+audit:
+  root-whitelist:
+    files:
+      - codecov.yml

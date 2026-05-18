@@ -19,3 +19,12 @@ env/
 *.swo
 *~
 .DS_Store
+
+# Local scitex state — track only audit config (file-level exclusion
+# so the negation rule applies; a directory-level `.scitex/` exclusion
+# would block negation). See:
+#   01_ecosystem_06_local-state-directories.md §4c (incident 2026-05-11)
+.scitex/*
+!.scitex/dev/
+.scitex/dev/*
+!.scitex/dev/config.yaml

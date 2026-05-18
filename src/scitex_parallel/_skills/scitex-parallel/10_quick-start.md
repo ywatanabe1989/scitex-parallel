@@ -1,7 +1,8 @@
 ---
-name: quick-start
-description: scitex-parallel — Quick Start — see file body for details.
-tags: [scitex-parallel, scitex-package]
+description: |
+  [TOPIC] scitex-parallel — Quick Start
+  [DETAILS] scitex-parallel — Quick Start — see file body for details..
+tags: [scitex-parallel-quick-start]
 ---
 
 <!-- 01_quick-start.md -->

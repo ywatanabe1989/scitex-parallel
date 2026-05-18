@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "scitex-parallel"
-version = "0.1.6"
+version = "0.1.7"
 description = "Thread/process pool parallel execution utilities"
 readme = "README.md"
 license = "AGPL-3.0-only"
@@ -36,6 +36,15 @@ dev = [
     "pytest>=7.0",
     "pytest-cov",
     "ruff",
+    "scitex-dev>=0.11.7",
+]
+
+docs = [
+    "sphinx>=7.0",
+    "sphinx-rtd-theme>=2.0",
+    "myst-parser>=2.0",
+    "sphinx-copybutton>=0.5",
+    "sphinx-autodoc-typehints>=1.25",
 ]
 
 [project.urls]
@@ -52,6 +61,11 @@ scitex-parallel = "scitex_parallel"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/scitex_parallel"]
+
+[tool.coverage.run]
+parallel = true
+source = ["scitex_parallel"]
+concurrency = ["multiprocessing", "thread"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

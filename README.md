@@ -1,15 +1,5 @@
 # scitex-parallel
 
-<!-- scitex-badges:start -->
-[![PyPI](https://img.shields.io/pypi/v/scitex-parallel.svg)](https://pypi.org/project/scitex-parallel/)
-[![Python](https://img.shields.io/pypi/pyversions/scitex-parallel.svg)](https://pypi.org/project/scitex-parallel/)
-[![Tests](https://github.com/ywatanabe1989/scitex-parallel/actions/workflows/test.yml/badge.svg)](https://github.com/ywatanabe1989/scitex-parallel/actions/workflows/test.yml)
-[![Install Test](https://github.com/ywatanabe1989/scitex-parallel/actions/workflows/install-test.yml/badge.svg)](https://github.com/ywatanabe1989/scitex-parallel/actions/workflows/install-test.yml)
-[![Coverage](https://codecov.io/gh/ywatanabe1989/scitex-parallel/graph/badge.svg)](https://codecov.io/gh/ywatanabe1989/scitex-parallel)
-[![Docs](https://readthedocs.org/projects/scitex-parallel/badge/?version=latest)](https://scitex-parallel.readthedocs.io/en/latest/)
-[![License: AGPL v3](https://img.shields.io/badge/license-AGPL_v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
-<!-- scitex-badges:end -->
-
 <p align="center">
   <a href="https://scitex.ai">
     <img src="docs/scitex-logo-blue-cropped.png" alt="SciTeX" width="400">
@@ -19,8 +9,19 @@
 <p align="center"><b>Thread/process pool parallel execution utilities — `map` with tqdm, auto CPU count.</b></p>
 
 <p align="center">
-  <a href="https://scitex-parallel.readthedocs.io/">Full Documentation</a> · <code>pip install scitex-parallel</code>
+  <a href="https://scitex-parallel.readthedocs.io/">Full Documentation</a> · <code>uv pip install scitex-parallel[all]</code>
 </p>
+
+<!-- scitex-badges:start -->
+<p align="center">
+  <a href="https://pypi.org/project/scitex-parallel/"><img src="https://img.shields.io/pypi/v/scitex-parallel?label=pypi" alt="pypi"></a>
+  <a href="https://pypi.org/project/scitex-parallel/"><img src="https://img.shields.io/pypi/pyversions/scitex-parallel?label=python" alt="python"></a>
+  <a href="https://github.com/ywatanabe1989/scitex-parallel/actions/workflows/rtd-sphinx-build-on-ubuntu-latest.yml"><img src="https://img.shields.io/github/actions/workflow/status/ywatanabe1989/scitex-parallel/rtd-sphinx-build-on-ubuntu-latest.yml?branch=develop&label=docs" alt="docs"></a>
+  <a href="https://github.com/ywatanabe1989/scitex-parallel/actions/workflows/pytest-matrix-on-ubuntu-py3-11-3-12-3-13.yml"><img src="https://img.shields.io/github/actions/workflow/status/ywatanabe1989/scitex-parallel/pytest-matrix-on-ubuntu-py3-11-3-12-3-13.yml?branch=develop&label=tests" alt="tests"></a>
+  <a href="https://codecov.io/gh/ywatanabe1989/scitex-parallel"><img src="https://img.shields.io/codecov/c/github/ywatanabe1989/scitex-parallel/develop?label=cov" alt="cov"></a>
+  <a href="https://www.gnu.org/licenses/agpl-3.0"><img src="https://img.shields.io/badge/license-AGPL_v3-blue.svg" alt="License: AGPL v3"></a>
+</p>
+<!-- scitex-badges:end -->
 
 ---
 
@@ -47,7 +48,7 @@ results = run(my_func, items, n_jobs=4)
 
 ## 1 Interfaces
 
-<details>
+<details open>
 <summary><strong>Python API</strong></summary>
 
 <br>
@@ -63,6 +64,39 @@ results = run(my_func, [(a, b) for a, b in zip(xs, ys)], n_jobs=4)
 ```
 
 </details>
+
+## Architecture
+
+```
+scitex_parallel/
+├── _run.py               ← `run(func, args, n_jobs=…)` thread-pool map
+├── _progress.py          ← tqdm wiring (auto desc, position-safe)
+├── _cpu.py               ← auto CPU-count detection
+└── __init__.py           ← public surface
+```
+
+## Demo
+
+```mermaid
+flowchart LR
+    A[items list] --> B[run func, items, n_jobs=8]
+    B --> T1[thread 1]
+    B --> T2[thread 2]
+    B --> Tn[thread N]
+    T1 & T2 & Tn --> C[tqdm progress bar]
+    C --> D[results list]
+```
+
+```python
+from scitex_parallel import run
+
+urls = ["https://api.example.com/{}".format(i) for i in range(100)]
+results = run(fetch_url, urls, n_jobs=8, desc="Fetching")
+```
+
+```
+Fetching: 100%|████████████| 100/100 [00:04<00:00, 22.3 it/s]
+```
 
 ## Part of SciTeX
 
