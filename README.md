@@ -69,10 +69,8 @@ results = run(my_func, [(a, b) for a, b in zip(xs, ys)], n_jobs=4)
 
 ```
 scitex_parallel/
-├── _run.py               ← `run(func, args, n_jobs=…)` thread-pool map
-├── _progress.py          ← tqdm wiring (auto desc, position-safe)
-├── _cpu.py               ← auto CPU-count detection
-└── __init__.py           ← public surface
+├── __init__.py           ← public surface (run, __version__)
+└── _run.py               ← `run(func, args, n_jobs=…)` thread-pool map
 ```
 
 ## Demo
