@@ -7,7 +7,7 @@ tags: [scitex-parallel-python-api]
 
 # Python API
 
-`scitex_parallel.__all__` contains a single symbol.
+`scitex_parallel.__all__` contains two symbols.
 
 ## Public symbols
 
@@ -52,4 +52,4 @@ matches input order.
 ## Not exposed
 
 - No process pool, no async/await variant, no result-streaming
-  iterator. By design this module is one function.
+  iterator. By design this module exposes one function and a version string.

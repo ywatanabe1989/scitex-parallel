@@ -36,10 +36,11 @@ results = run(add, args_list, n_jobs=-1, desc="adding")
 
 ## Public API
 
-`scitex_parallel.__all__` contains one symbol:
+`scitex_parallel.__all__` contains two symbols:
 
 | Symbol | Kind | One-liner |
 |--------|------|-----------|
+| `__version__` | str | Installed package version. |
 | `run` | function | Thread-pool parallel map with tqdm progress bar. |
 
 ## Signature

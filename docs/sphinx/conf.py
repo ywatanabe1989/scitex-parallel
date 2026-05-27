@@ -41,20 +41,7 @@ autodoc_default_options = {
     "exclude-members": "__weakref__",
 }
 
-autodoc_mock_imports = [
-    "fastmcp",
-    "click",
-    "h5py",
-    "zarr",
-    "torch",
-    "scipy",
-    "matplotlib",
-    "PIL",
-    "cv2",
-    "plotly",
-    "pandas",
-    "numpy",
-]
+autodoc_mock_imports = []
 
 autosummary_generate = True
 
