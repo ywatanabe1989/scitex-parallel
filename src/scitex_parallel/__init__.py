@@ -15,10 +15,15 @@ except ImportError:  # pragma: no cover — only on ancient Pythons
     __version__ = "0.0.0+local"
 
 from ._run import run
+from ._thread_with_return_value import ThreadWithReturnValue
+from ._wait_key import _return_counting_process, wait_key
 
 __all__ = [
     "__version__",
+    "_return_counting_process",
+    "ThreadWithReturnValue",
     "run",
+    "wait_key",
 ]
 
 # EOF

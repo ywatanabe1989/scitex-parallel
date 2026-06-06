@@ -7,6 +7,19 @@ versions follow [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.2.0] — 2026-06-07
+
+- feat: port `ThreadWithReturnValue`, `wait_key`, and
+  `_return_counting_process` from `scitex-gen` `misc.py` and
+  `scitex-etc.wait_key` (Phase B of the scitex-gen full retirement
+  wave). The two upstream `wait_key` variants are unified under a
+  single `wait_key(process, key='q')` signature.
+- fix: `ThreadWithReturnValue.__init__` upstream raised
+  `NameError: Thread` because the legacy module called
+  `Thread.__init__(...)` without importing `Thread`. Qualified as
+  `threading.Thread.__init__(...)` (and the same fix on `join`).
+- Add `readchar` to runtime dependencies for `wait_key`.
+
 ## [0.1.8] — 2025-10-01
 
 - Untrack `_sphinx_html/` build artifacts from git.
