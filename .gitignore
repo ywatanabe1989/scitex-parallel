@@ -36,3 +36,7 @@ docs/sphinx/_build/
 
 # Agent-local direnv config (per-agent IDs, not project state)
 .envrc
+
+# Worktree checkouts (worktree doctrine) and archived supersessions
+.worktrees/
+.old/
