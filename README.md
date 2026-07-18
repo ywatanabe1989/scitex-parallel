@@ -25,6 +25,8 @@
 
 ---
 
+> **Interfaces:** Python ⭐⭐⭐ (primary) · CLI — · MCP — · Skills ⭐ · Hook — · HTTP —
+
 ## Problem and Solution
 
 | # | Problem | Solution |
